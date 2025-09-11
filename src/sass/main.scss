@@ -586,6 +586,32 @@ span {
 	margin-bottom: 1em;
 }
 
+/* Startowe schowanie i przesunięcie */
+.about-me-first-part .about-text,
+.about-me-first-part img,
+.about-me-second-part .about-text,
+.about-me-second-part img {
+    opacity: 0;
+    transition: transform 0.7s cubic-bezier(.21, .82, .51, .97), opacity 0.7s;
+}
+
+/* Tekst about-me-first-part z lewej, zdjęcie z prawej */
+.about-me-first-part .about-text { transform: translateX(-80px);}
+.about-me-first-part img { transform: translateX(80px);}
+
+/* Tekst about-me-second-part z prawej, zdjęcie z lewej */
+.about-me-second-part .about-text { transform: translateX(80px);}
+.about-me-second-part img { transform: translateX(-80px);}
+
+/* Efekt pojawienia się */
+.about-me-first-part.visible .about-text,
+.about-me-first-part.visible img,
+.about-me-second-part.visible .about-text,
+.about-me-second-part.visible img {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 
 @media (width > 576px) {
 	.about-me-first-part, .about-me-second-part {

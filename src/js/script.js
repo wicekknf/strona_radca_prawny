@@ -61,3 +61,19 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(card);
   });
 });
+
+
+// pojawianie się sekcji o mnie
+document.addEventListener("DOMContentLoaded", () => {
+    const aboutParts = document.querySelectorAll(".about-me-first-part, .about-me-second-part");
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    aboutParts.forEach(part => observer.observe(part));
+});
