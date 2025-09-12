@@ -1,92 +1,45 @@
+// Menu burger
 const burger = document.getElementById("burger");
 const menu = document.querySelector(".menu");
 const nav = document.querySelector("nav");
 const allElementsMiniNav = document.querySelectorAll(".menu a");
 
-//handle mini nav
-
 function handleMiniNav() {
-	burger.classList.toggle("active");
-	menu.classList.toggle("active");
+  burger.classList.toggle("active");
+  menu.classList.toggle("active");
 }
-
 allElementsMiniNav.forEach((element) => {
-	element.addEventListener("click", handleMiniNav);
+  element.addEventListener("click", handleMiniNav);
 });
-
 burger.addEventListener("click", handleMiniNav);
 
-// Kod odpowiedzialny za pojawianie się kart przy scrollu
-document.addEventListener("DOMContentLoaded", () => {
-	const cards = document.querySelectorAll(".card");
-
-	const observer = new IntersectionObserver(
-		(entries, observer) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add("visible");
-					observer.unobserve(entry.target);
-				}
-			});
-		},
-		{
-			threshold: 0.1,
-		}
-	);
-
-	cards.forEach((card) => {
-		observer.observe(card);
-	});
-});
-
-// kod dla zaciemniania nawigacji
-
+// Zaciemnianie nawigacji 
 window.addEventListener("scroll", () => {
-	if (window.scrollY > 20) {
-		nav.classList.add("background-for-menu");
-	} else {
-		nav.classList.remove("background-for-menu");
-	}
+  if (window.scrollY > 20) {
+    nav.classList.add("background-for-menu");
+  } else {
+    nav.classList.remove("background-for-menu");
+  }
 });
 
-// kod dla animacji ofert przy scrollu
 
 document.addEventListener("DOMContentLoaded", () => {
-	const cards = document.querySelectorAll(".s-card");
+  // Wybrane wszystkie selektory, które mają pojawiać się przy scrollu
+  const elements = document.querySelectorAll(
+    ".card, .s-card, .about-me-first-part, .about-me-second-part"
+  );
 
-	const observer = new IntersectionObserver(
-		(entries, observer) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add("visible");
-					observer.unobserve(entry.target);
-				}
-			});
-		},
-		{ threshold: 0.2 }
-	);
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 } // Możesz ustawić własne wartości threshold, np. 0.1, 0.2 itd.
+  );
 
-	cards.forEach((card) => {
-		observer.observe(card);
-	});
-});
-
-// pojawianie się sekcji o mnie
-document.addEventListener("DOMContentLoaded", () => {
-	const aboutParts = document.querySelectorAll(
-		".about-me-first-part, .about-me-second-part"
-	);
-	const observer = new IntersectionObserver(
-		(entries, observer) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add("visible");
-					observer.unobserve(entry.target);
-				}
-			});
-		},
-		{ threshold: 0.2 }
-	);
-
-	aboutParts.forEach((part) => observer.observe(part));
+  elements.forEach((el) => observer.observe(el));
 });
