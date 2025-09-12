@@ -2,6 +2,10 @@
 const burger = document.getElementById("burger");
 const menu = document.querySelector(".menu");
 const nav = document.querySelector("nav");
+const span = document.querySelector(".year");
+const currentYear = new Date().getFullYear();
+span.textContent = currentYear;
+
 const allElementsMiniNav = document.querySelectorAll(".menu a");
 
 function handleMiniNav() {
@@ -26,7 +30,7 @@ window.addEventListener("scroll", () => {
 document.addEventListener("DOMContentLoaded", () => {
   // Wybrane wszystkie selektory, które mają pojawiać się przy scrollu
   const elements = document.querySelectorAll(
-    ".card, .s-card, .about-me-first-part, .about-me-second-part"
+    ".card, .s-card, .about-me-first-part, .about-me-second-part, .contact-img, .contact-text"
   );
 
   const observer = new IntersectionObserver(
