@@ -42,7 +42,8 @@ html {
 .lora-regular,
 h1,
 h2,
-.spec-text {
+.spec-text,
+.hero2-text {
 	font-family: "Lora", serif;
 	font-optical-sizing: auto;
 	font-weight: 800;
@@ -566,7 +567,8 @@ span {
 	color: var(--main-color);
 }
 
-.about-me-first-part, .about-me-second-part {
+.about-me-first-part,
+.about-me-second-part {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -574,14 +576,14 @@ span {
 	gap: 1em;
 	margin-bottom: 3em;
 	max-width: 800px;
-	margin: 0 auto;	
+	margin: 0 auto;
 	text-align: center;
 	padding: 0 10px;
 	font-size: 1.6rem;
 	line-height: 1.6;
 }
 
-.about-me-first-part{
+.about-me-first-part {
 	flex-direction: column-reverse;
 	margin-bottom: 1em;
 }
@@ -591,30 +593,38 @@ span {
 .about-me-first-part img,
 .about-me-second-part .about-text,
 .about-me-second-part img {
-    opacity: 0;
-    transition: transform 0.7s cubic-bezier(.21, .82, .51, .97), opacity 0.7s;
+	opacity: 0;
+	transition: transform 0.7s cubic-bezier(0.21, 0.82, 0.51, 0.97), opacity 0.7s;
 }
 
 /* Tekst about-me-first-part z lewej, zdjęcie z prawej */
-.about-me-first-part .about-text { transform: translateX(-80px);}
-.about-me-first-part img { transform: translateX(80px);}
+.about-me-first-part .about-text {
+	transform: translateX(-80px);
+}
+.about-me-first-part img {
+	transform: translateX(80px);
+}
 
 /* Tekst about-me-second-part z prawej, zdjęcie z lewej */
-.about-me-second-part .about-text { transform: translateX(80px);}
-.about-me-second-part img { transform: translateX(-80px);}
+.about-me-second-part .about-text {
+	transform: translateX(80px);
+}
+.about-me-second-part img {
+	transform: translateX(-80px);
+}
 
 /* Efekt pojawienia się */
 .about-me-first-part.visible .about-text,
 .about-me-first-part.visible img,
 .about-me-second-part.visible .about-text,
 .about-me-second-part.visible img {
-    opacity: 1;
-    transform: translateX(0);
+	opacity: 1;
+	transform: translateX(0);
 }
 
-
 @media (width > 576px) {
-	.about-me-first-part, .about-me-second-part {
+	.about-me-first-part,
+	.about-me-second-part {
 		flex-direction: row;
 		text-align: left;
 		padding: 0;
@@ -622,5 +632,48 @@ span {
 	.about-me-first-part img {
 		margin: 0;
 		margin-left: 2em;
+	}
+}
+
+// hero2
+.hero2 {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 300px;
+	margin-bottom: 5rem;
+	background-image: url("../../dist/img/hero2_small.jpg");
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.hero2-shadow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(27, 38, 59, 0.7);
+	z-index: 2;
+}
+
+.hero2-text {
+	position: relative;
+	z-index: 3;
+	padding: 10px 50px;
+	color: var(--main-text-color);
+	font-size: 3rem;
+	text-align: center;
+	font-weight: 550;
+}
+
+@media (width > 576px) {
+	.hero2 {
+		background-image: url("../../dist/img/hero2_medium.jpg");
+	}
+	.hero2-text {
+		font-size: 4rem;
 	}
 }

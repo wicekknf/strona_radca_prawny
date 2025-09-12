@@ -1,11 +1,20 @@
 const burger = document.getElementById("burger");
 const menu = document.querySelector(".menu");
-const nav = document.querySelector("nav")
+const nav = document.querySelector("nav");
+const allElementsMiniNav = document.querySelectorAll(".menu a");
 
-burger.addEventListener("click", () => {
+//handle mini nav
+
+function handleMiniNav() {
 	burger.classList.toggle("active");
 	menu.classList.toggle("active");
+}
+
+allElementsMiniNav.forEach((element) => {
+	element.addEventListener("click", handleMiniNav);
 });
+
+burger.addEventListener("click", handleMiniNav);
 
 // Kod odpowiedzialny za pojawianie się kart przy scrollu
 document.addEventListener("DOMContentLoaded", () => {
@@ -33,47 +42,51 @@ document.addEventListener("DOMContentLoaded", () => {
 // kod dla zaciemniania nawigacji
 
 window.addEventListener("scroll", () => {
-	if(window.scrollY > 20) {
-		nav.classList.add("background-for-menu")
+	if (window.scrollY > 20) {
+		nav.classList.add("background-for-menu");
 	} else {
-		nav.classList.remove("background-for-menu")
+		nav.classList.remove("background-for-menu");
 	}
-})
+});
 
 // kod dla animacji ofert przy scrollu
 
 document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".s-card");
+	const cards = document.querySelectorAll(".s-card");
 
-  const observer = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
+	const observer = new IntersectionObserver(
+		(entries, observer) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("visible");
+					observer.unobserve(entry.target);
+				}
+			});
+		},
+		{ threshold: 0.2 }
+	);
 
-  cards.forEach((card) => {
-    observer.observe(card);
-  });
+	cards.forEach((card) => {
+		observer.observe(card);
+	});
 });
-
 
 // pojawianie się sekcji o mnie
 document.addEventListener("DOMContentLoaded", () => {
-    const aboutParts = document.querySelectorAll(".about-me-first-part, .about-me-second-part");
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.2 });
+	const aboutParts = document.querySelectorAll(
+		".about-me-first-part, .about-me-second-part"
+	);
+	const observer = new IntersectionObserver(
+		(entries, observer) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("visible");
+					observer.unobserve(entry.target);
+				}
+			});
+		},
+		{ threshold: 0.2 }
+	);
 
-    aboutParts.forEach(part => observer.observe(part));
+	aboutParts.forEach((part) => observer.observe(part));
 });
