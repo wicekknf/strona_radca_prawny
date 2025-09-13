@@ -27,23 +27,23 @@ window.addEventListener("scroll", () => {
 });
 
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   // Wybrane wszystkie selektory, które mają pojawiać się przy scrollu
-//   const elements = document.querySelectorAll(
-//     ".card, .s-card, .about-me-first-part, .about-me-second-part, .contact-img, .contact-text"
-//   );
+document.addEventListener("DOMContentLoaded", () => {
+  // Wybrane wszystkie selektory, które mają pojawiać się przy scrollu
+  const elements = document.querySelectorAll(
+    ".card, .s-card, .about-me-first-part, .about-me-second-part, .contact-img, .contact-text"
+  );
 
-//   const observer = new IntersectionObserver(
-//     (entries, observer) => {
-//       entries.forEach((entry) => {
-//         if (entry.isIntersecting) {
-//           entry.target.classList.add("visible");
-//           observer.unobserve(entry.target);
-//         }
-//       });
-//     },
-//     { threshold: 0.2 } // Możesz ustawić własne wartości threshold, np. 0.1, 0.2 itd.
-//   );
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 } // Możesz ustawić własne wartości threshold, np. 0.1, 0.2 itd.
+  );
 
-//   elements.forEach((el) => observer.observe(el));
-// });
+  elements.forEach((el) => observer.observe(el));
+});
