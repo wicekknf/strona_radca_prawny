@@ -680,6 +680,11 @@ span {
 
 // contact
 
+#contact {
+	margin-bottom: 0;
+}
+
+
 .contact {
 	display: flex;
 	justify-content: center;
@@ -760,6 +765,9 @@ span {
 	}
 }
 @media (width > 768px) {
+	#contact {
+		margin-bottom: 1em;
+	}
 	.contact-box {
 		height: 400px;
 	}
@@ -786,6 +794,8 @@ span {
 }
 
 //address
+
+
 .address {
 	display: flex;
 	justify-content: center;
@@ -883,6 +893,7 @@ footer {
 }
 
 .footer-line {
+	
 	width: 80%;
 	height: 1px;
 	background-color: var(--main-text-color);
@@ -896,4 +907,21 @@ footer {
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
+}
+
+.place, .year {
+	font-size: 1rem;
+}
+
+.footer-bottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
+}
+
+@media (width > 576px){
+	footer {
+	height: 60vh;
+	}
 }
