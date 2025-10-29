@@ -300,12 +300,16 @@ h1 {
 }
 
 .short-info img {
-	width: 200px;
+	width: 250px;
+}
+
+.short-info-text h3 {
+	font-size: 2.4rem
 }
 
 .short-info-text {
 	padding: 0 20px;
-	font-size: 1.8rem;
+	font-size: 2rem;
 	letter-spacing: 1px;
 	color: var(--main-color);
 	font-weight: 500;
@@ -318,8 +322,15 @@ h1 {
 		flex-direction: row-reverse;
 		max-width: 650px;
 	}
+
+	.short-info-text h3 {
+	font-size: 2.6rem
+}
+
+
 	.short-info-text {
 		padding: 0;
+		font-size: 2.3rem;
 	}
 }
 
@@ -557,8 +568,10 @@ span {
 
 // about-me
 .about-me-section img {
-	width: 150px;
-	border-radius: 50%;
+	width: 250px;
+	border-top-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	// border-radius: 25px;
 	margin-bottom: 1em;
 }
 .about-me-section {
