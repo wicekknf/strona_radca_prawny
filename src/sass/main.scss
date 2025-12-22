@@ -234,6 +234,7 @@ h1 {
 }
 
 .contact-btn {
+	display: inline-block;
 	margin-top: 1em;
 	padding: 0.3em 1em;
 	cursor: pointer;
@@ -244,6 +245,7 @@ h1 {
 	border-radius: 25px;
 	background: #bf0808;
 	transition: background 0.3s ease, transform 0.3s ease;
+	text-decoration: none;
 }
 
 .contact-btn:hover {
@@ -304,7 +306,7 @@ h1 {
 }
 
 .short-info-text h3 {
-	font-size: 2.4rem
+	font-size: 2.4rem;
 }
 
 .short-info-text {
@@ -324,9 +326,8 @@ h1 {
 	}
 
 	.short-info-text h3 {
-	font-size: 2.6rem
-}
-
+		font-size: 2.6rem;
+	}
 
 	.short-info-text {
 		padding: 0;
@@ -505,7 +506,7 @@ span {
 	position: absolute;
 	top: 0px;
 	width: 100%;
-	height: 150px;
+	height: 170px;
 	background-color: rgba($color: #fff, $alpha: 0.76);
 	z-index: 1;
 }
@@ -675,7 +676,7 @@ span {
 .hero2-text {
 	position: relative;
 	z-index: 3;
-	padding: 10px 50px;
+	padding: 10px;
 	color: var(--main-text-color);
 	font-size: 3rem;
 	text-align: center;
@@ -697,7 +698,6 @@ span {
 	margin-bottom: 0;
 }
 
-
 .contact {
 	display: flex;
 	justify-content: center;
@@ -715,7 +715,7 @@ span {
 	margin-top: 5em;
 	width: 90vw;
 	max-width: 1200px;
-	height: 400px;
+	// height: 400px;
 	gap: 2em;
 	background-image: url("../img/hero2_medium.jpg");
 	background-position: center;
@@ -755,7 +755,7 @@ span {
 .contact-text {
 	position: relative;
 	z-index: 1;
-	padding: 1em 2em;
+	padding: 0.2em 0.2em;
 	font-size: 1.6rem;
 	color: var(--main-text-color);
 	line-height: 1.6;
@@ -769,11 +769,7 @@ span {
 }
 
 @media (width > 576px) {
-	.contact-box {
-		height: 300px;
-	}
 	.contact-text {
-		padding: 0 4em;
 		font-size: 1.8rem;
 	}
 }
@@ -782,10 +778,11 @@ span {
 		margin-bottom: 1em;
 	}
 	.contact-box {
-		height: 400px;
+		height: 460px;
 	}
 	.contact-text {
 		padding: 0 0.2em;
+		font-size: 1.4rem;
 	}
 
 	.contact-img {
@@ -801,13 +798,11 @@ span {
 		margin-left: 6em;
 	}
 	.contact-text {
-		padding: 0 2em;
 		font-size: 2rem;
 	}
 }
 
 //address
-
 
 .address {
 	display: flex;
@@ -839,7 +834,7 @@ span {
 	align-items: center;
 	flex-direction: column;
 	padding: 0 0.1em;
-	font-size: 1.4rem;
+	font-size: 1.1rem;
 	color: var(--main-color);
 }
 
@@ -868,6 +863,12 @@ span {
 	text-decoration: none;
 	cursor: pointer;
 	max-width: 400px;
+}
+
+@media (width > 345px) {
+	.address-words {
+		font-size: 1.4rem;
+	}
 }
 
 @media (width > 576px) {
@@ -906,7 +907,6 @@ footer {
 }
 
 .footer-line {
-	
 	width: 80%;
 	height: 1px;
 	background-color: var(--main-text-color);
@@ -922,7 +922,8 @@ footer {
 	background-repeat: no-repeat;
 }
 
-.place-bottom, .year {
+.place-bottom,
+.year {
 	font-size: 1rem;
 }
 
@@ -933,8 +934,8 @@ footer {
 	gap: 1em;
 }
 
-@media (width > 576px){
+@media (width > 576px) {
 	footer {
-	height: 60vh;
+		height: 60vh;
 	}
 }
