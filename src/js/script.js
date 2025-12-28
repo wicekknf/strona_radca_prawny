@@ -1,49 +1,73 @@
-// Menu burger
+// Cache wszystkich referencji DOM (jednorazowe zapytania)
 const burger = document.getElementById("burger");
 const menu = document.querySelector(".menu");
 const nav = document.querySelector("nav");
 const span = document.querySelector(".year");
-const currentYear = new Date().getFullYear();
-span.textContent = currentYear;
-
 const allElementsMiniNav = document.querySelectorAll(".menu a");
 
+// Ustawienie roku
+span.textContent = new Date().getFullYear();
+
+// Funkcja toggle menu
 function handleMiniNav() {
-  burger.classList.toggle("active");
-  menu.classList.toggle("active");
+	burger.classList.toggle("active");
+	menu.classList.toggle("active");
 }
-allElementsMiniNav.forEach((element) => {
-  element.addEventListener("click", handleMiniNav);
+
+// Event delegation dla linków menu
+menu.addEventListener("click", (e) => {
+	if (e.target.matches("a")) {
+		handleMiniNav();
+	}
 });
+
+// Burger menu
 burger.addEventListener("click", handleMiniNav);
 
-// Zaciemnianie nawigacji 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 20) {
-    nav.classList.add("background-for-menu");
-  } else {
-    nav.classList.remove("background-for-menu");
-  }
-});
+// scroll z requestAnimationFrame + passive listener
+let ticking = false;
+function updateNavBackground() {
+	if (window.scrollY > 20) {
+		nav.classList.add("background-for-menu");
+	} else {
+		nav.classList.remove("background-for-menu");
+	}
+	ticking = false;
+}
 
+function handleScroll() {
+	if (!ticking) {
+		requestAnimationFrame(updateNavBackground);
+		ticking = true;
+	}
+}
+window.addEventListener("scroll", handleScroll, { passive: true });
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Wybrane wszystkie selektory, które mają pojawiać się przy scrollu
-  const elements = document.querySelectorAll(
-    ".card, .s-card, .about-me-first-part, .about-me-second-part, .contact-img, .contact-text"
-  );
+// IntersectionObserver
+const elements = document.querySelectorAll(
+	".card, .s-card, .about-me-first-part, .about-me-second-part, .contact-img, .contact-text"
+);
 
-  const observer = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.2 } // Możesz ustawić własne wartości threshold, np. 0.1, 0.2 itd.
-  );
+const observer = new IntersectionObserver(
+	(entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add("visible");
+				observer.unobserve(entry.target);
+			}
+		});
+	},
+	{
+		threshold: 0.2,
+		rootMargin: "0px 0px -10% 0px",
+	}
+);
 
-  elements.forEach((el) => observer.observe(el));
-});
+// Obserwuj elementy po załadowaniu DOM
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", () => {
+		elements.forEach((el) => observer.observe(el));
+	});
+} else {
+	elements.forEach((el) => observer.observe(el));
+}
