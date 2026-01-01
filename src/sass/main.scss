@@ -211,6 +211,15 @@ nav {
 	background-size: cover;
 }
 
+.hero-subtitle {
+			margin-top: 1em;
+			margin-bottom: 1.5em;
+			font-size: 1.9rem;
+			color: var(--main-text-color);
+			font-weight: 400;
+			line-height: 1.4;
+		}
+
 .hero-gradient {
 	position: absolute;
 	top: 0;
@@ -268,6 +277,10 @@ h1 {
 	.contact-btn {
 		font-size: 2rem;
 	}
+
+	.hero-subtitle {
+				font-size: 2.1rem;
+			}
 }
 
 @media (width > 768px) {
@@ -281,6 +294,9 @@ h1 {
 	.contact-btn {
 		font-size: 2.1rem;
 	}
+	.hero-subtitle {
+				font-size: 2.3rem;
+			}
 }
 
 @media (width > 992px) {
@@ -387,6 +403,16 @@ h2 {
 	transition: opacity 0.6s ease, transform 0.6s ease, width 0.3s ease,
 		height 0.3s ease, box-shadow 0.3s ease;
 }
+
+	.card-subtitle {
+			display: block;
+			margin-top: 0.8rem;
+			font-size: 1.3rem;
+			font-weight: 400;
+			text-transform: none;
+			font-style: italic;
+			opacity: 0.9;
+		}
 
 .card.visible {
 	opacity: 1;
