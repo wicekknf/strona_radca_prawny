@@ -212,13 +212,13 @@ nav {
 }
 
 .hero-subtitle {
-			margin-top: 1em;
-			margin-bottom: 1.5em;
-			font-size: 1.9rem;
-			color: var(--main-text-color);
-			font-weight: 400;
-			line-height: 1.4;
-		}
+	margin-top: 1em;
+	margin-bottom: 1.5em;
+	font-size: 1.9rem;
+	color: var(--main-text-color);
+	font-weight: 400;
+	line-height: 1.4;
+}
 
 .hero-gradient {
 	position: absolute;
@@ -279,8 +279,8 @@ h1 {
 	}
 
 	.hero-subtitle {
-				font-size: 2.1rem;
-			}
+		font-size: 2.1rem;
+	}
 }
 
 @media (width > 768px) {
@@ -295,8 +295,8 @@ h1 {
 		font-size: 2.1rem;
 	}
 	.hero-subtitle {
-				font-size: 2.3rem;
-			}
+		font-size: 2.3rem;
+	}
 }
 
 @media (width > 992px) {
@@ -404,15 +404,15 @@ h2 {
 		height 0.3s ease, box-shadow 0.3s ease;
 }
 
-	.card-subtitle {
-			display: block;
-			margin-top: 0.8rem;
-			font-size: 1.3rem;
-			font-weight: 400;
-			text-transform: none;
-			font-style: italic;
-			opacity: 0.9;
-		}
+.card-subtitle {
+	display: block;
+	margin-top: 0.8rem;
+	font-size: 1.3rem;
+	font-weight: 400;
+	text-transform: none;
+	font-style: italic;
+	opacity: 0.9;
+}
 
 .card.visible {
 	opacity: 1;
@@ -957,5 +957,31 @@ footer {
 @media (width > 576px) {
 	footer {
 		height: 60vh;
+	}
+}
+
+// 404
+.not-found-up {
+	width: 100%;
+	height: 100px;
+	background-color: #1b263b;
+}
+
+.not-found {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	margin: 100px;
+	img {
+		display: inline-block;
+		width: 70vw;
+		max-width: 500px;
+	}
+	p {
+		margin-bottom: 50px;
+		font-size: 2.3rem;
+		text-transform: uppercase;
+		text-align: center;
 	}
 }
